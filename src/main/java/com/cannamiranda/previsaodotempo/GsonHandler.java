@@ -17,22 +17,6 @@ import java.io.IOException;
  * @author clara
  */
 public class GsonHandler {
-    
-    File file;
-
-    public GsonHandler() {
-        this.file = new File("teste.json");
-    }
-    
-    
-  /*  public void getDailyInformationFromJson(){
-        String ss;
-        Gson gson = new Gson();
-        Map<String, Object> data = gson.fromJson(ss, Map.class); // parse
-        JsonObject jsonTree = (JsonObject) gson.toJsonTree(data);
-        String dailyJson = jsonTree.get("daily").toString();
-    }*/
-    
     public void stringToJson(String data){
         //private static void writeUsingFileWriter(String data) {
         getDaysFromstring(data);
@@ -53,18 +37,37 @@ public class GsonHandler {
         }
     }
     
-    public void getDaysFromstring(String data){
+    public String getPrintableDailyData(DataModel model){
+        String str = "Previsão do tempo para os próximos 7 dias\n\n";
+        
+        for (Daily i : model.daily){
+        //  System.out.println(i.toString()); 
+            str = str.concat(i.toString());
+        }
+        
+        //System.out.println(str);
+        return str;
+        
+    }
+    
+    public String getDaysFromstring(String data){
       DataModel model;
       Gson gson = new Gson();
       model = gson.fromJson(data, DataModel.class);
       
-      System.out.println("\nImprimindo previsão do tempo para os próximos 7 dias\n");
+      //System.out.println("\nImprimindo previsão do tempo para os próximos 7 dias\n");
       
-      for (Daily i : model.daily){
-          System.out.println(i.toString());
-          
-      }
-        
+      String str = getPrintableDailyData(model);
+      /*for (Daily i : model.daily){
+          System.out.println(i.toString()); 
+          str.concat(i.toString());
+      }*/
+    
+      //return model;
+     // System.out.println(str);
+      return str;
     }
+    
+
     
 }

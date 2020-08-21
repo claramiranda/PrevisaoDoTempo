@@ -1,9 +1,13 @@
-com\cannamiranda\previsaodotempo\Daily.class
 com\cannamiranda\previsaodotempo\Temp.class
 com\cannamiranda\previsaodotempo\OWMRequests.class
-com\cannamiranda\previsaodotempo\OkHttpGet.class
+com\cannamiranda\previsaodotempo\JFrameHandler$3.class
 com\cannamiranda\previsaodotempo\Weather.class
 com\cannamiranda\previsaodotempo\Feels_like.class
 com\cannamiranda\previsaodotempo\Main.class
+com\cannamiranda\previsaodotempo\JFrameHandler.class
 com\cannamiranda\previsaodotempo\DataModel.class
+com\cannamiranda\previsaodotempo\Daily.class
+com\cannamiranda\previsaodotempo\OkHttpGet.class
+com\cannamiranda\previsaodotempo\JFrameHandler$1.class
+com\cannamiranda\previsaodotempo\JFrameHandler$2.class
 com\cannamiranda\previsaodotempo\GsonHandler.class

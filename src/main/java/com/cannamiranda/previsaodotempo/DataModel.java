@@ -69,13 +69,13 @@ class Daily {
     @Override
     public String toString() { 
         String date = dateFormater(this.dt);
-        return String.format("Na data " + date + " o clima estará " + this.weather.get(0).description); 
-                
+        return String.format("No dia " + date + " o clima estará " + this.weather.get(0).description
+        + "\n\tMinima: " + this.temp.min + "°C \n\tMaxima: "+ this.temp.max + "°C\n"); 
     }
     
     public String dateFormater(long date){
         DateTimeFormatter formatter = 
-        DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        DateTimeFormatter.ofPattern("dd-MM-yyyy");
         long unixTime = date;
         final String formattedDtm = Instant.ofEpochSecond(unixTime)
                 .atZone(ZoneId.of("GMT-3"))

@@ -11,6 +11,8 @@ package com.cannamiranda.previsaodotempo;
  */
 
 import java.io.IOException;
+import net.aksingh.owmjapis.model.param.City;
+import net.aksingh.owmjapis.model.param.Coord;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -37,15 +39,29 @@ public class OkHttpGet {
                 + "&appid=" + this.owm.getAPI_KEY();
         //System.out.println(url);
         
+        String str;
+        
         Request request = new Request.Builder().url(url).build();
         try (Response response = client.newCall(request).execute()) {
             String data = response.body().string();
             //jsonHandler.stringToJson(data);
-            jsonHandler.getDaysFromstring(data);
-            return data;
+            str = jsonHandler.getDaysFromstring(data);
+            return str;
         } catch (IOException e){
             System.out.print(e.getMessage());
             return e.getMessage();
         }
+    }
+    
+    public String getDataFromCity(String cityName){
+        City city = OkHttpGet.owm.getCityByCityName(cityName);
+        Coord coord = city.getCoordData();
+        
+        String lat = coord.getLatitude().toString();
+        String lon = coord.getLongitude().toString();
+        
+        String data = requestForecastJson(lat,lon);
+        
+        return data;
     }
 }

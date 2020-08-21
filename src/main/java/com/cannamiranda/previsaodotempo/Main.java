@@ -25,6 +25,7 @@ public class Main {
             BufferedReader  scanner = new BufferedReader(new InputStreamReader(System.in));
             cityName = scanner.readLine();
             
+            
             OkHttpGet requestGet = new OkHttpGet();
             int cityId = OkHttpGet.owm.getCityIdByCityName(cityName);
        
@@ -37,6 +38,6 @@ public class Main {
             String lat = coord.getLatitude().toString();
             String lon = coord.getLongitude().toString();
                     
-            requestGet.requestForecastJson(lat,lon);
+            requestGet.requestForecastJson(lat,lon); //essa chamada precisa sair do main
     }
 }
