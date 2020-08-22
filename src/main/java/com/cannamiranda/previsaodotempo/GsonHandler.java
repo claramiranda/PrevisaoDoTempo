@@ -6,68 +6,39 @@
 package com.cannamiranda.previsaodotempo;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+
 
 
 /**
  *
  * @author clara
+ * Essa classe trata o JSON, ela basicamente faz o parse pra objeto e formata a saida que vai pra GUI
+ * 
  */
 public class GsonHandler {
-    public void stringToJson(String data){
-        //private static void writeUsingFileWriter(String data) {
-        getDaysFromstring(data);
-        File file = new File("teste.json");
-        FileWriter fr = null;
-        try {
-            fr = new FileWriter(file);
-            fr.write(data);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }finally{
-            //close resources
-            try {
-                fr.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-    
+    //Metodo que cria a string que vai ser exibida na gui
     public String getPrintableDailyData(DataModel model){
-        String str = "Previsão do tempo para os próximos 7 dias\n\n";
+        //cabecalho
+        String output = "Previsão do tempo para os próximos 7 dias\nCidade: " + model.cityName;
         
+        //loop pra pegar os dados de todos os dias
         for (Daily i : model.daily){
-        //  System.out.println(i.toString()); 
-            str = str.concat(i.toString());
+            output = output.concat(i.toString());
         }
-        
-        //System.out.println(str);
-        return str;
-        
+        return output;
     }
     
-    public String getDaysFromstring(String data){
+    //Faz o parse do JSON pra DataModel 
+    public String getDaysFromstring(String data, String cityName){
+        
       DataModel model;
       Gson gson = new Gson();
+      
       model = gson.fromJson(data, DataModel.class);
+      model.cityName = cityName;
       
-      //System.out.println("\nImprimindo previsão do tempo para os próximos 7 dias\n");
-      
-      String str = getPrintableDailyData(model);
-      /*for (Daily i : model.daily){
-          System.out.println(i.toString()); 
-          str.concat(i.toString());
-      }*/
-    
-      //return model;
-     // System.out.println(str);
-      return str;
+      String output = getPrintableDailyData(model);
+      return output;
     }
-    
-
-    
+   
 }

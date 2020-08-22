@@ -5,9 +5,12 @@
  */
 package com.cannamiranda.previsaodotempo;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author clara
+ * Essa é a classe que manipula a GUI, não necessita de mtas explicações
  */
 public class JFrameHandler extends javax.swing.JFrame {
 
@@ -17,6 +20,13 @@ public class JFrameHandler extends javax.swing.JFrame {
     public JFrameHandler() {
         initComponents();
     }
+    
+    //teste que deu errado mas vou deixar aqui pra lembrar que não é assim que faz
+    /*public JFrameHandler(String errorMessage) {
+        initComponents();
+        this.printErrorCodeOnGui(errorMessage);
+    }*/
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -112,23 +122,68 @@ public class JFrameHandler extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCityActionPerformed
 
+    //Le o nome da cidade quando se clica no botão
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
         System.out.println("OnClickButton!");
+        
         OkHttpGet request = new OkHttpGet();
-        String cityName = jTextFieldCity.getText().toString();
-        String data = request.getDataFromCity(cityName);
-        jTextPaneSaida.setText(data);
+        String cityName = jTextFieldCity.getText();
+        
+        //ok, vamos tratar o basico por aqui pra pelo menos nao deixar passar cidade que nao existe e null
+        if (cityName.equals("")){
+            jTextPaneSaida.setText("Nome da cidade não pode ser nulo.");
+            JOptionPane.showMessageDialog(null,"Nome da cidade não pode ser nulo.");
+        }
+        else {
+            OWMRequests owm = new OWMRequests();
+            
+            boolean validCity = owm.checkIfCityExists(cityName);
+            if (validCity){
+                jTextPaneSaida.setText("Carregando dados...");
+                String data = request.getDataFromCity(cityName);
+                jTextPaneSaida.setText(data);
+            }
+            else {
+                JOptionPane.showMessageDialog(null,"Cidade não encontrada");
+            }
+        }        
     }//GEN-LAST:event_jButton1MouseClicked
-
+    
+    
+    private void printErrorCodeOnGui(String error){
+        jTextPaneSaida.setText(error);
+    }
+    
+    //Le o nome da cidade qnd se aperta enter dentro do textFIeld
     private void jTextFieldCityKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCityKeyPressed
         // TODO add your handling code here
         if(evt.getKeyCode() == evt.VK_ENTER){
             System.out.println("Enter pressed!");
-            OkHttpGet request = new OkHttpGet();
-            String cityName = jTextFieldCity.getText().toString();
-            String data = request.getDataFromCity(cityName);
-            jTextPaneSaida.setText(data);
+            
+                    OkHttpGet request = new OkHttpGet();
+        String cityName = jTextFieldCity.getText();
+        
+        //ok, vamos tratar o basico por aqui pra pelo menos nao deixar passar cidade que nao existe e null
+        if (cityName.equals("")){
+            jTextPaneSaida.setText("Nome da cidade não pode ser nulo. Tente inserir o nome de uma cidade.");
+            JOptionPane.showMessageDialog(null,"Nome da cidade não pode ser nulo.");
+        }
+        else {
+            OWMRequests owm = new OWMRequests();
+            
+            boolean validCity = owm.checkIfCityExists(cityName);
+            if (validCity){
+                jTextPaneSaida.setText("Carregando dados...");
+                String data = request.getDataFromCity(cityName);
+                jTextPaneSaida.setText(data);
+            }
+            else {
+                jTextPaneSaida.setText("Cidade não encontrada, tente pesquisar outro local.");
+                JOptionPane.showMessageDialog(null,"Cidade não encontrada, tente pesquisar outro local.");
+            }
+
+        }
         }
     }//GEN-LAST:event_jTextFieldCityKeyPressed
 

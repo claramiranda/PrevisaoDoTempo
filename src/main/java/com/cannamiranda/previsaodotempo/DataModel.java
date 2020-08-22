@@ -13,15 +13,17 @@ import java.util.ArrayList;
 /**
  *
  * @author clara
+ *  Essa classe é o modelo de dados pra montar o objeto extraido do json
  */
 
 
 public class DataModel {
+    String cityName;
     double lat;
     double lon;
     String timezone;
     String timezone_offset;
-    ArrayList<Daily> daily = new ArrayList<>();
+    ArrayList<Daily> daily = new ArrayList<>();  //vetor com a previsão do tempo pros próximos dias, é daqui que eu pego as infos
 }
 
 class Temp {
@@ -66,19 +68,25 @@ class Daily {
     String rain;
     String snow;
     
+    
+    //sobreescrita do método toString pra printar bonitinho meus dados
     @Override
     public String toString() { 
-        String date = dateFormater(this.dt);
-        return String.format("No dia " + date + " o clima estará " + this.weather.get(0).description
+        
+        String date = dateFormater(this.dt); //chama o método de conversao do tempo
+        
+        return String.format("\nNo dia " + date + " o clima estará " + this.weather.get(0).description
         + "\n\tMinima: " + this.temp.min + "°C \n\tMaxima: "+ this.temp.max + "°C\n"); 
     }
     
+    //converte o formato de data de UTC pra um humanamente legivel
     public String dateFormater(long date){
         DateTimeFormatter formatter = 
-        DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        DateTimeFormatter.ofPattern("dd/MM/yyyy");  //pattern da data
+        
         long unixTime = date;
         final String formattedDtm = Instant.ofEpochSecond(unixTime)
-                .atZone(ZoneId.of("GMT-3"))
+                .atZone(ZoneId.of("GMT-3"))   //nesse parametro que muda o fusohorário, por padrão é o horário de sp
                 .format(formatter);
 
         return(formattedDtm); 
