@@ -92,6 +92,9 @@ Gerenciador de build:
   <tr>
     <td align="center"><a href="https://github.com/StellaJung-Student"><sub><b>Stella Jung</b></sub></a><br />‍⚖️</td>
   </tr>
+   <tr>
+     <td align="center"><a href="https://github.com/smcveigh941"><sub><b>Stephen McVeigh 🌎</b></sub></a><br />‍⚖️</td>
+   </tr>
 </table>
 
 ---
