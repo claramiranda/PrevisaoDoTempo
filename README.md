@@ -56,7 +56,7 @@ Esse projeto é um exercício (e exemplo) da utilização desses dois meio de ob
 
 ## Screenshots
  Feita utilizando a biblioteca JPannel.
- <br>
+ <br> <br>
  ![Interface Grafica TL;DR =100x20](gui_previsaodotempo.PNG)
 
 ---
