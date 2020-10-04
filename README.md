@@ -119,7 +119,7 @@ Gerenciador de build:
 
 ## 📝 Licença
 
-Este projeto esta sobe a licença [MIT](./LICENSE).
+Este projeto esta sob a licença [MIT](./LICENSE).
 
 Feito com ❤️ por Clara Miranda 👋🏽 
 <br>[Entre em contato!](https://www.linkedin.com/in/cannamiranda/)
