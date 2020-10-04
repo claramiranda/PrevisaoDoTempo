@@ -22,7 +22,7 @@ Tabela de conteúdos
 <!--ts-->
    * [Sobre o projeto](#-sobre-o-projeto)
    * [Funcionalidades](#-Funcionalidades)
-   * [Screenshots](#-Screenshots)
+   * [Screenshots](#Screenshots)
    * [Como executar o projeto](#-como-executar-o-projeto)
    * [Tecnologias](#-tecnologias)
    * [Contribuidores](#-contribuidores)
@@ -44,7 +44,7 @@ Esse projeto é um exercício (e exemplo) da utilização desses dois meio de ob
 
 ---
 
-## ⚙️ Funcionalidades
+## ⚙ Funcionalidades
 
 - [x] Exibe a previsão do tempo para qualquer cidade do mundo
   - [x] recebe o nome de uma cidade na interface
@@ -91,6 +91,7 @@ Gerenciador de build:
 <table>
   <tr>
     <td align="center"><a href="https://github.com/StellaJung-Student"><sub><b>Stella Jung</b></sub></a><br />‍⚖️</td>
+    <td align="center"><a href="https://github.com/Saharatt593"><sub><b>Saharatt593</b></sub></a><br />‍</td>
   </tr>
    <tr>
      <td align="center"><a href="https://github.com/smcveigh941"><sub><b>Stephen McVeigh 🌎</b></sub></a><br />‍⚖️</td>
