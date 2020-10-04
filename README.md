@@ -37,7 +37,7 @@ Tabela de conteúdos
 
 <h4 align="center">🌦️️️ Uma aplicação simples, desenvolvida em Java, para consumir os dados da API <a href="https://openweathermap.org/api">OpenWeatherMap</a>. 🌈 </h4>
 
-Para serem obtidos os dados da previsão do tempo para os próximos 7 dias, são necessários diferentes tipos de requests aps serviços da OpenWeather (API e Rest).
+Para serem obtidos os dados da previsão do tempo para os próximos 7 dias, são necessários diferentes tipos de requests aos serviços da OpenWeather (API e Rest).
 <br>
 Esse projeto é um exercício (e exemplo) da utilização desses dois meio de obtenção de informação, além de fazer um tratamento nos dados para exibir apenas a informação relevante ao usuário final.
 
@@ -91,6 +91,9 @@ Gerenciador de build:
 <table>
   <tr>
     <td align="center"><a href="https://github.com/StellaJung-Student"><sub><b>Stella Jung</b></sub></a><br />‍⚖️</td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/NelsonKommander"><sub><b>Nelson Reis</b></sub></a><br />🏎‍</td>
   </tr>
 </table>
 
