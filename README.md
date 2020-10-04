@@ -66,6 +66,7 @@ Esse projeto é um exercício (e exemplo) da utilização desses dois meio de ob
 1. Clonar esse projeto para o repositório local
 2. Instalar as dependências utilizando o Maven
 3. Buildar e executar em sua IDE de preferência
+4. Executar a partir do método main() da classe JFrameHandler
 
 ---
 
